@@ -10,7 +10,8 @@
 			<Button text="{i18n>openDialogButtonText}"
 					id="helloDialogButton"
 					press=".onOpenDialog"
-					class="sapUiSmallMarginEnd" />
+					class="sapUiSmallMarginEnd"
+					icon="sap-icon://popup-window"/>
 			<Button text="{i18n>showButtonText}" 
 					press=".onPress" 
 					class="myCustomButton"/>
