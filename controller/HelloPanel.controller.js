@@ -1,8 +1,7 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/m/MessageToast",
-	"sap/ui/core/Fragment"
-	],function(Controller, MessageToast, Fragment){
+	"sap/m/MessageToast"
+	],function(Controller, MessageToast){
 	"use strict";
 	
 	return Controller.extend("sap.ui.demo.controller.HelloPanel",{
@@ -17,25 +16,8 @@ sap.ui.define([
 		},
 		
 		onOpenDialog : function () {
-			var oView = this.getView();
-
-			// if the dialog in the fragment does not exist yet
-			if (!this.pDialog) {
-				this.pDialog = Fragment.load({
-					id: oView.getId(),
-					name: "sap.ui.demo.view.HelloDialog",
-					controller:this
-				}).then(function (oDialog) {
-					// connect dialog to the root view of this component (models, lifecycle)
-					oView.addDependent(oDialog);
-					return oDialog;
-				});
-			} 
-			
-			// open Dialog
-			this.pDialog.then(function(oDialog) {
-				oDialog.open();
-			});
+			//call component method openHelloDialog
+			this.getOwnerComponent().openHelloDialog();
 		},
 		
 		onCloseDialog : function(){

@@ -1,8 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/model/resource/ResourceModel"
-	],function(UIComponent,JSONModel,ResourceModel){
+	"./controller/HelloDialog"
+	],function(UIComponent,JSONModel,HelloDialog){
 	"use strict";
 	
 	return UIComponent.extend("sap.ui.demo.Component",{
@@ -21,13 +21,20 @@ sap.ui.define([
 			var oModel = new JSONModel(oData);
 			this.setModel(oModel);
 			
-			// set i18n model
-			var i18nModel=new ResourceModel({
-				bundleName: "sap.ui.demo.i18n.i18n",
-				supportedLocales: [""],
-				fallbackLocale: ""
-			});
-			this.setModel(i18nModel,"i18n");
+			// initiate the reuse Dialog
+			this._helloDialog = new HelloDialog(this.getRootControl());
+		},
+		
+		exit: function(){
+			//clean up the helper class and end its lifecycle
+			this._helloDialog.destroy();
+			//delete our reference to the HelloDialog instance
+			delete this._helloDialog;
+		},
+		
+		openHelloDialog: function(){
+			// open the reuse Dialog
+			this._helloDialog.open();
 		}
 	});
 });
