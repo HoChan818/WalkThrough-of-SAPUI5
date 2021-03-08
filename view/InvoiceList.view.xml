@@ -14,7 +14,8 @@
 								type:'sap.ui.model.type.Currency',
 								formatOptions:{showMeasure:false}
 							 }"
-							 numberUnit="{view>/currency}"/>
+							 numberUnit="{view>/currency}"
+							 numberState="{= ${invoice>ExtendedPrice} >50 ? 'Error' : 'Success'}"/>
 		</items>
 	</List>
 </mvc:View>
