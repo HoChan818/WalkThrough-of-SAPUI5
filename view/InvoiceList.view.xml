@@ -7,7 +7,7 @@
 		  class="sapUiResponsiveMargin"
 		  width="auto"
 		  items="{ path: 'invoice>/Invoices',
-		          sorter: { path: 'ProductName', descending:'true'} }">
+		          sorter: { path: 'ShipperName', group: true } }">
 		<headerToolbar>
 			<Toolbar>
 				<Title text="{i18n>invoiceListTitle}" />
