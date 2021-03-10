@@ -1,0 +1,13 @@
+{
+  "welcomeFile": "index.html",
+  "routes": [
+    {
+      "path": "/destinations/Northwind",
+      "target": {
+        "type": "destination",
+        "name": "Northwind"
+      },
+      "description": "Northwind OData Service"
+    }
+  ]
+}
