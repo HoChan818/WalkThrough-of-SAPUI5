@@ -23,6 +23,9 @@ sap.ui.define([
 			
 			// initiate the reuse Dialog
 			this._helloDialog = new HelloDialog(this.getRootControl());
+			
+			// create the view basd on the URL/HASH
+			this.getRouter().initialize();
 		},
 		
 		exit: function(){

@@ -5,19 +5,6 @@
 	displayBlock="true">
 	
 	<Shell>
-		<App class="myAppDemo">
-			<pages>
-				<Page title="{i18n>homePageTitle}">
-					<headerContent>
-						<Button icon="sap-icon://popup-window"
-								press=".onOpenDialog" />
-					</headerContent>
-					<content>
-						<mvc:XMLView viewName="sap.ui.demo.view.HelloPanel"/>
-						<mvc:XMLView viewName="sap.ui.demo.view.InvoiceList"/>
-					</content>
-				</Page>
-			</pages>
-		</App>
+		<App class="myAppDemo" id="app"/>
 	</Shell>
 </mvc:View>
