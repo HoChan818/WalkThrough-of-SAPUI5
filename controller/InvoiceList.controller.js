@@ -39,10 +39,9 @@ sap.ui.define([
 				var oSeletedItem = oEvent.getSource();
 				//get binding context information with model name
 				var oBindingContext = oSeletedItem.getBindingContext("invoice");
-				//binding information for control with path
-				//then remove the first / from the binding path
+				//get navigation parameters which remove the first / from the binding path
 				var sPath = oBindingContext.getPath().substr(1);
-				//fill the navigation parameter invoicePath with the current information of the item
+				//fill the navigation parameter invoicePath
 				//then goto detail view
 				oRouter.navTo("detail",{
 					invoicePath: window.encodeURIComponent(sPath)
