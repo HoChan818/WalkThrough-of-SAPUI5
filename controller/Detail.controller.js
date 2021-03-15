@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/core/routing/History"
-	],function(Controller,History){
+	"sap/ui/core/routing/History",
+	"sap/m/MessageToast"
+	],function(Controller,History,MessageToast){
 		"use strict";
 		
 		return Controller.extend("sap.ui.demo.controller.Detail", {
@@ -29,10 +30,21 @@ sap.ui.define([
 				}
 			},
 			
+			//the event handler for ProductRating control change event
+			onRatingChange: function(oEvent){
+				var fValue = oEvent.getParameter("value");
+				var oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
+				//simply display a message instead of sending the rating to the backend
+				MessageToast.show(oResourceBundle.getText("ratingConfirmation",[fValue]));
+			},
+			
+			//the event handler for hitting route
 			_onObjectMatched: function(oEvent){
 				//The arguments parameter will return an object that corresponds 
 				//to our navigation parameters from the route pattern
 				var sPath = oEvent.getParameter("arguments").invoicePath;
+				//call custom control method
+				this.byId("rating").reset();
 				//Set context on the view
 				this.getView().bindElement({
 					path: "/" + window.decodeURIComponent(sPath),
